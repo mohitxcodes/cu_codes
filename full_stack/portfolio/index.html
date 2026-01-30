@@ -1,135 +1,158 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Chandigarh University</title>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <header>
-      <div class="">
-        <h1>Mohit Kumar</h1>
-        <p>Full Stack Developer - Welcome to my Portfolio</p>
-        <img
-          src="https://png.pngtree.com/png-clipart/20230927/original/pngtree-man-avatar-image-for-profile-png-image_13001877.png"
-          alt="user-img"
-          width="100"
-          height="100"
-        />
-        <hr />
-        <nav>
-          <a href="#">Home</a> || <a href="#">Github</a> ||
-          <a href="#">LinkedIn</a> ||
-          <a href="#">Github</a>
-        </nav>
-        <hr />
-        <section>
+    <div class="container">
+      <header>
+        <div class="profile-card">
+          <img
+            src="https://png.pngtree.com/png-clipart/20230927/original/pngtree-man-avatar-image-for-profile-png-image_13001877.png"
+            alt="user-img"
+            class="profile-img"
+          />
+          <h1 class="profile-title">Mohit Kumar</h1>
+          <p class="profile-subtitle">
+            Full Stack Developer - Welcome to my Portfolio
+          </p>
+          <nav class="nav-links">
+            <a href="#">Home</a>
+            <a href="#">Github</a>
+            <a href="#">LinkedIn</a>
+            <a href="#">Contact</a>
+          </nav>
+        </div>
+      </header>
+
+      <main>
+        <section id="projects">
           <h2>Project Section</h2>
-          <article>
-            <h3>
-              Url Shortener
-              <span>
-                || <a href="#" width="50" height="50">Github Link</a>
-              </span>
-            </h3>
+          <article class="project-card">
+            <div class="project-header">
+              <h3 class="project-title">Url Shortener</h3>
+              <a href="#" class="project-link">Github Link</a>
+            </div>
             <p>
               Url Shortener is a web application that allows users to shorten
               long URLs into a compact and memorable format.
             </p>
           </article>
-          <article>
-            <h3>
-              Weather App
-              <span>
-                || <a href="#" width="50" height="50">Github Link</a>
-              </span>
-            </h3>
+          <article class="project-card">
+            <div class="project-header">
+              <h3 class="project-title">Weather App</h3>
+              <a href="#" class="project-link">Github Link</a>
+            </div>
             <p>
               Weather App is a web application that allows users to check the
               current weather conditions and forecasts for a specific location.
             </p>
           </article>
         </section>
-        <hr />
-        <section>
+
+        <section id="skills">
           <h2>Skills</h2>
-          <ul>
-            <li>HTML</li>
-            <li>CSS</li>
-            <li>JavaScript</li>
-            <li>React</li>
-            <li>Node.js</li>
-            <li>Express</li>
-            <li>Python</li>
-            <li>Flask</li>
-            <li>Git</li>
-            <li>GitHub</li>
-            <li>GitLab</li>
-            <li>Bitbucket</li>
+          <ul class="skills-list">
+            <li class="skill-tag">HTML</li>
+            <li class="skill-tag">CSS</li>
+            <li class="skill-tag">JavaScript</li>
+            <li class="skill-tag">React</li>
+            <li class="skill-tag">Node.js</li>
+            <li class="skill-tag">Express</li>
+            <li class="skill-tag">Python</li>
+            <li class="skill-tag">Flask</li>
+            <li class="skill-tag">Git</li>
+            <li class="skill-tag">GitHub</li>
+            <li class="skill-tag">GitLab</li>
+            <li class="skill-tag">Bitbucket</li>
           </ul>
         </section>
-        <hr />
-        <section>
+
+        <section id="education">
           <h2>Education</h2>
-          <table border="1">
-            <tr>
-              <th>Course</th>
-              <th>University</th>
-              <th>Grade</th>
-              <th>Year</th>
-            </tr>
-            <tr>
-              <td>BE CSE</td>
-              <td>Chandigarh University</td>
-              <td>CGPA 8.5</td>
-              <td>2025</td>
-            </tr>
-            <tr>
-              <td>12th</td>
-              <td>EW High School</td>
-              <td>CGPA 9.5</td>
-              <td>2022</td>
-            </tr>
-          </table>
+          <div class="table-responsive">
+            <table class="education-table">
+              <thead>
+                <tr>
+                  <th>Course</th>
+                  <th>University</th>
+                  <th>Grade</th>
+                  <th>Year</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>BE CSE</td>
+                  <td>Chandigarh University</td>
+                  <td>CGPA 8.5</td>
+                  <td>2025</td>
+                </tr>
+                <tr>
+                  <td>12th</td>
+                  <td>EW High School</td>
+                  <td>CGPA 9.5</td>
+                  <td>2022</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </section>
-        <hr />
-        <section>
+
+        <section id="contact">
           <h2>Contact Us</h2>
-          <form>
-            <label for="name">Name</label>
-            <input type="text" id="name" name="name" required />
-            <br />
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" required />
-            <br />
-            <label for="message">Reason of Contact</label>
-            <select name="message" id="message">
-              <option value="">Select</option>
-              <option value="">Job Application</option>
-              <option value="">Traning Application</option>
-              <option value="">Freelance Work</option>
-              <option value="">Other</option>
-            </select>
-            <br />
-            <label for="message">Feedback Message</label>
-            <br />
-            <textarea
-              name="message"
-              id="message"
-              cols="30"
-              rows="10"
-            ></textarea>
-            <br />
-            <button type="submit">Send</button>
+          <form class="contact-form">
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                class="form-control"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                class="form-control"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="reason">Reason of Contact</label>
+              <select name="reason" id="reason" class="form-control">
+                <option value="">Select</option>
+                <option value="job">Job Application</option>
+                <option value="training">Training Application</option>
+                <option value="freelance">Freelance Work</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="message">Feedback Message</label>
+              <textarea
+                name="message"
+                id="message"
+                cols="30"
+                rows="6"
+                class="form-control"
+              ></textarea>
+            </div>
+            <button type="submit" class="btn-submit">Send Message</button>
           </form>
         </section>
-        <hr />
-        <footer>
-          <p>Created by Mohit Kumar</p>
-          <p>Copyright &copy; 2025</p>
-          <p>All rights reserved</p>
-        </footer>
-      </div>
-    </header>
+      </main>
+
+      <footer>
+        <p>Created by Mohit Kumar</p>
+        <p>Copyright &copy; 2025 | All rights reserved</p>
+      </footer>
+    </div>
   </body>
 </html>

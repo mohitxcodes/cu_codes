@@ -1,0 +1,175 @@
+/* Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: white;
+  color: black;
+  line-height: 1.6;
+  padding: 20px;
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.profile-card {
+  background-color: white;
+  padding: 30px;
+  border-radius: 10px;
+  border: 1px solid gray;
+}
+
+.profile-img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 4px solid gray;
+}
+
+.profile-title {
+  font-size: 32px;
+  margin-top: 10px;
+}
+
+.profile-subtitle {
+  color: gray;
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.nav-links {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: gray;
+  padding: 10px 20px;
+  background-color: white;
+  border: 1px solid gray;
+  border-radius: 5px;
+  margin: 0 5px;
+  display: inline-block;
+}
+
+.nav-links a:hover {
+  background-color: blue;
+  color: white;
+}
+
+section {
+  background-color: white;
+  padding: 30px;
+  margin-bottom: 30px;
+  border-radius: 10px;
+  border: 1px solid gray;
+}
+
+section h2 {
+  color: black;
+  border-bottom: 2px solid black;
+  display: inline-block;
+  margin-bottom: 20px;
+}
+.project-card {
+  background-color: whitesmoke;
+  border: 1px solid gray;
+  padding: 20px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+}
+
+.project-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.project-link {
+  color: blue;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.project-link:hover {
+  text-decoration: underline;
+}
+
+.skills-list {
+  list-style-type: none;
+}
+
+.skill-tag {
+  display: inline-block;
+  background-color: whitesmoke;
+  color: black;
+  padding: 8px 16px;
+  margin: 5px;
+  border-radius: 20px;
+  font-weight: bold;
+}
+
+.education-table {
+  width: 100%;
+}
+
+.education-table th,
+.education-table td {
+  padding: 12px;
+}
+
+.education-table th {
+  background-color: whitesmoke;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.form-control {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid gray;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.btn-submit {
+  background-color: gray;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn-submit:hover {
+  background-color: darkblue;
+}
+
+footer {
+  text-align: center;
+  margin-top: 40px;
+  color: gray;
+}
