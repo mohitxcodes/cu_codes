@@ -1,60 +1,37 @@
+--Complete the queries below to insert data into the tables & retrieving the first records from the first 3 tables.
 
-CREATE TABLE Books (
-    book_id INT PRIMARY KEY,
-    title VARCHAR(100) NOT NULL,
-    author VARCHAR(100) NOT NULL,
-    publisher VARCHAR(100),
-    price NUMERIC(8,2)
-);
+-- Inserting Data into Doctors Table
+INSERT INTO Doctors (DoctorID, Name, Specialization, ContactNumber, Email) VALUES
+(1, 'Dr. John Smith', 'Cardiology', '1234567890', 'john.smith@hospital.com'),
+(2, 'Dr. Lisa Brown', 'Neurology', '0987654321', 'lisa.brown@hospital.com');
 
-CREATE TABLE Members (
-    member_id INT PRIMARY KEY,
-    member_name VARCHAR(100) NOT NULL,
-    email VARCHAR(100) UNIQUE,
-    phone VARCHAR(15)
-);
+-- Inserting Data into Patients Table
+INSERT INTO Patients (PatientID, Name, DOB, Gender, ContactNumber, Address) VALUES
+(1, 'Alice Johnson', '1990-05-21', 'Female', '1112223333', '123 Main St'),
+(2, 'Bob Martin', '1985-08-14', 'Male', '4445556666', '456 Elm St');
 
-CREATE TABLE Issue_Record (
-    issue_id INT PRIMARY KEY,
-    book_id INT,
-    member_id INT,
-    issue_date DATE,
-    return_date DATE,
-    FOREIGN KEY (book_id) REFERENCES Books(book_id),
-    FOREIGN KEY (member_id) REFERENCES Members(member_id)
-);
+-- Inserting Data into Appointments Table
+INSERT INTO Appointments (AppointmentID, PatientID, DoctorID, AppointmentDate, Status) VALUES
+(1, 1, 1, '2025-02-15', 'Scheduled'),
+(2, 2, 2, '2025-02-16', 'Completed');
 
-INSERT INTO Books VALUES
-(101,'Database System Concepts','Korth','McGraw Hill',650.00),
-(102,'Operating System','Galvin','Wiley',750.00),
-(103,'Computer Networks','Tanenbaum','Pearson',800.00);
+-- Inserting Data into Treatments Table
+INSERT INTO Treatments (TreatmentID, PatientID, DoctorID, Diagnosis, TreatmentDescription, TreatmentDate) VALUES
+(1, 1, 1, 'Hypertension', 'Prescribed medication', '2025-02-15'),
+(2, 2, 2, 'Migraine', 'MRI Scan and medications', '2025-02-16');
 
-INSERT INTO Members VALUES
-(1,'Rahul Sharma','rahul@gmail.com','9876543210'),
-(2,'Priya Singh','priya@gmail.com','9876501234'),
-(3,'Amit Kumar','amit@gmail.com','9988776655');
+-- Inserting Data into MedicalRecords Table
+INSERT INTO MedicalRecords (RecordID, PatientID, TreatmentID, Notes) VALUES
+(1, 1, 1, 'Patient responding well to treatment'),
+(2, 2, 2, 'Further evaluation required');
 
-INSERT INTO Issue_Record VALUES
-(1001,101,1,'2026-07-01','2026-07-15'),
-(1002,102,2,'2026-07-02','2026-07-16');
+-- Inserting Data into Billing Table
+INSERT INTO Billing (BillID, PatientID, TreatmentID, Amount, BillDate, Status) VALUES
+(1, 1, 1, 200.00, '2025-02-15', 'Paid'),
+(2, 2, 2, 500.00, '2025-02-16', 'Unpaid');
 
-SELECT * FROM BOOKS;
-SELECT * FROM MEMBERS
-Select * from Issue_Record
+--Now write the queries for retrieving the first records from the first three tables (Doctors, Patients, Appointments).
 
-
-
-SELECT CURRENT_USER
-
-CREATE ROLE LIBRARIAN2 
-WITH LOGIN PASSWORD 'Lib@1234'
-	   
-GRANT SELECT,INSERT,DELETE,UPDATE
-ON BOOKS,Members, Issue_Record
-TO LIBRARIAN2 
-
-
-	   
-REVOKE SELECT,INSERT,DELETE,UPDATE
-ON BOOKS,Members, Issue_Record
-FROM LIBRARIAN2 
+select * from Doctors limit 1;
+select * from Patients limit 1;
+select * from Appointments limit 1;
