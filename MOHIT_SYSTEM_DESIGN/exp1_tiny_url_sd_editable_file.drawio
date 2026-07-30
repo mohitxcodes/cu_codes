@@ -1,0 +1,241 @@
+<mxfile host="app.diagrams.net" agent="Claude">
+  <diagram id="tinyurl-redesign" name="TinyURL System Design">
+    <mxGraphModel dx="3213" dy="1897" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1820" pageHeight="1700" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title1" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#333333;strokeColor=none;fontColor=#FFFFFF;fontSize=22;fontStyle=1;align=center;verticalAlign=middle;" value="TinyURL — System Design Overview" vertex="1">
+          <mxGeometry height="60" width="1760" x="20" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="agenda1" parent="1" style="swimlane;rounded=1;arcSize=8;whiteSpace=wrap;html=1;startSize=32;fillColor=#2C7A7B;fontColor=#FFFFFF;fontStyle=1;fontSize=14;strokeColor=#1F5B5B;strokeWidth=1;swimlaneFillColor=#FFFFFF;" value="Contents" vertex="1">
+          <mxGeometry height="180" width="400" x="690" y="100" as="geometry" />
+        </mxCell>
+        <mxCell id="agendaText1" parent="agenda1" style="text;html=1;align=left;verticalAlign=top;whiteSpace=wrap;fontSize=12;spacingLeft=6;spacingTop=2;fontColor=#1F2937;" value="&lt;ul style=&quot;margin:0;padding-left:18px;&quot;&gt;&lt;li&gt;Functional Requirements&lt;/li&gt;&lt;li&gt;Non-Functional Requirements&lt;/li&gt;&lt;li&gt;Rough Estimation&lt;/li&gt;&lt;li&gt;Database Schema&lt;/li&gt;&lt;li&gt;REST APIs&lt;/li&gt;&lt;li&gt;System Architecture&lt;/li&gt;&lt;/ul&gt;" vertex="1">
+          <mxGeometry height="140" width="380" x="10" y="32" as="geometry" />
+        </mxCell>
+        <mxCell id="fr1" parent="1" style="swimlane;rounded=1;arcSize=6;whiteSpace=wrap;html=1;startSize=32;fillColor=#2C7A7B;fontColor=#FFFFFF;fontStyle=1;fontSize=13;strokeColor=#1F5B5B;strokeWidth=1;swimlaneFillColor=#FFFFFF;" value="Functional Requirements" vertex="1">
+          <mxGeometry height="260" width="450" x="130" y="300" as="geometry" />
+        </mxCell>
+        <mxCell id="frText1" parent="fr1" style="text;html=1;align=left;verticalAlign=middle;whiteSpace=wrap;fontSize=13;spacingLeft=10;fontColor=#1F2937;" value="&lt;ul style=&quot;margin:0;padding-left:18px;&quot;&gt;&lt;li&gt;User enters a long URL.&lt;/li&gt;&lt;li&gt;System validates the URL.&lt;/li&gt;&lt;li&gt;User clicks the short URL.&lt;/li&gt;&lt;li&gt;System finds the original URL.&lt;/li&gt;&lt;li&gt;System returns the shortened URL.&lt;/li&gt;&lt;/ul&gt;" vertex="1">
+          <mxGeometry height="220" width="540" x="10" y="32" as="geometry" />
+        </mxCell>
+        <mxCell id="nf1" parent="1" style="swimlane;rounded=1;arcSize=6;whiteSpace=wrap;html=1;startSize=32;fillColor=#B7472A;fontColor=#FFFFFF;fontStyle=1;fontSize=13;strokeColor=#8C3720;strokeWidth=1;swimlaneFillColor=#FFFFFF;" value="Non-Functional Requirements" vertex="1">
+          <mxGeometry height="260" width="470" x="655" y="301" as="geometry" />
+        </mxCell>
+        <mxCell id="nfText1" parent="nf1" style="text;html=1;align=left;verticalAlign=middle;whiteSpace=wrap;fontSize=13;spacingLeft=10;fontColor=#1F2937;" value="&lt;ul style=&quot;margin:0;padding-left:18px;&quot;&gt;&lt;li&gt;High Availability (99.9% uptime)&lt;/li&gt;&lt;li&gt;Low Latency (&amp;lt;100 ms redirection)&lt;/li&gt;&lt;li&gt;High Scalability (Millions of URLs &amp;amp; requests)&lt;/li&gt;&lt;li&gt;Secure Communication (HTTPS &amp;amp; URL validation)&lt;/li&gt;&lt;/ul&gt;" vertex="1">
+          <mxGeometry height="220" width="540" x="10" y="32" as="geometry" />
+        </mxCell>
+        <mxCell id="cap1" parent="1" style="swimlane;rounded=1;arcSize=6;whiteSpace=wrap;html=1;startSize=32;fillColor=#B7791F;fontColor=#FFFFFF;fontStyle=1;fontSize=13;strokeColor=#8A5D14;strokeWidth=1;swimlaneFillColor=#FFFFFF;" value="Capacity Estimation — Servers" vertex="1">
+          <mxGeometry height="260" width="380" x="1200" y="300" as="geometry" />
+        </mxCell>
+        <mxCell id="capText1" parent="cap1" style="text;html=1;align=left;verticalAlign=middle;whiteSpace=wrap;fontSize=13;spacingLeft=10;fontColor=#1F2937;" value="Peak requests/sec = 3,500 req/sec&lt;br&gt;1 server handles = 1,000 req/sec&lt;br&gt;Servers needed = 3,500 / 1,000 = 4 servers" vertex="1">
+          <mxGeometry height="220" width="540" x="10" y="32" as="geometry" />
+        </mxCell>
+        <mxCell id="sto1" parent="1" style="swimlane;rounded=1;arcSize=6;whiteSpace=wrap;html=1;startSize=32;fillColor=#6B46C1;fontColor=#FFFFFF;fontStyle=1;fontSize=13;strokeColor=#4C2E8F;strokeWidth=1;swimlaneFillColor=#FFFFFF;" value="Storage Estimation" vertex="1">
+          <mxGeometry height="190" width="755" x="130" y="590" as="geometry" />
+        </mxCell>
+        <mxCell id="stoText1" parent="sto1" style="text;html=1;align=left;verticalAlign=middle;whiteSpace=wrap;fontSize=13;spacingLeft=10;fontColor=#1F2937;" value="URLs/day = 100,000&lt;br&gt;Storage (5 years) = 100,000 × 365 × 5 × 500 bytes ≈ 91 GB&lt;br&gt;Required Storage ≈ 100 GB" vertex="1">
+          <mxGeometry height="150" width="845" x="10" y="32" as="geometry" />
+        </mxCell>
+        <mxCell id="cache1" parent="1" style="swimlane;rounded=1;arcSize=6;whiteSpace=wrap;html=1;startSize=32;fillColor=#4A5568;fontColor=#FFFFFF;fontStyle=1;fontSize=13;strokeColor=#2D3748;strokeWidth=1;swimlaneFillColor=#FFFFFF;" value="Cache Storage" vertex="1">
+          <mxGeometry height="190" width="665" x="915" y="590" as="geometry" />
+        </mxCell>
+        <mxCell id="cacheText1" parent="cache1" style="text;html=1;align=left;verticalAlign=middle;whiteSpace=wrap;fontSize=13;spacingLeft=10;fontColor=#1F2937;" value="Total URLs (5 years) = 182.5 Million&lt;br&gt;Frequently Accessed (20%) = 36.5 Million&lt;br&gt;Cache Storage ≈ 36.5M × 500 bytes ≈ 18 GB ≈ 20 GB" vertex="1">
+          <mxGeometry height="150" width="845" x="10" y="32" as="geometry" />
+        </mxCell>
+        <mxCell id="dbTitle" parent="1" style="text;html=1;fontSize=20;fontStyle=1;fontColor=#16324F;align=left;verticalAlign=middle;" value="Database Schema" vertex="1">
+          <mxGeometry height="30" width="400" x="20" y="815" as="geometry" />
+        </mxCell>
+        <mxCell id="apiTitle" parent="1" style="text;html=1;fontSize=20;fontStyle=1;fontColor=#16324F;align=left;verticalAlign=middle;" value="REST API" vertex="1">
+          <mxGeometry height="30" width="400" x="910" y="815" as="geometry" />
+        </mxCell>
+        <mxCell id="userTbl" parent="1" style="swimlane;rounded=0;whiteSpace=wrap;html=1;startSize=30;fillColor=#16324F;fontColor=#FFFFFF;fontStyle=1;fontSize=13;strokeColor=#0F2033;swimlaneFillColor=#FFFFFF;" value="User" vertex="1">
+          <mxGeometry height="120" width="260" x="20" y="870" as="geometry" />
+        </mxCell>
+        <mxCell id="userRow1" parent="userTbl" style="rectangle;html=1;whiteSpace=wrap;fillColor=#FDEBD0;strokeColor=#E8C48A;fontSize=12;fontStyle=1;align=left;spacingLeft=10;fontColor=#5A3E00;" value="user_id  (PK)" vertex="1">
+          <mxGeometry height="30" width="260" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="userRow2" parent="userTbl" style="rectangle;html=1;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=#E2E8F0;fontSize=12;align=left;spacingLeft=10;fontColor=#2D3748;" value="name" vertex="1">
+          <mxGeometry height="30" width="260" y="60" as="geometry" />
+        </mxCell>
+        <mxCell id="userRow3" parent="userTbl" style="rectangle;html=1;whiteSpace=wrap;fillColor=#F7FAFC;strokeColor=#E2E8F0;fontSize=12;align=left;spacingLeft=10;fontColor=#2D3748;" value="email" vertex="1">
+          <mxGeometry height="30" width="260" y="90" as="geometry" />
+        </mxCell>
+        <mxCell id="urlTbl" parent="1" style="swimlane;rounded=0;whiteSpace=wrap;html=1;startSize=30;fillColor=#16324F;fontColor=#FFFFFF;fontStyle=1;fontSize=13;strokeColor=#0F2033;swimlaneFillColor=#FFFFFF;" value="URL" vertex="1">
+          <mxGeometry height="120" width="260" x="310" y="870" as="geometry" />
+        </mxCell>
+        <mxCell id="urlRow1" parent="urlTbl" style="rectangle;html=1;whiteSpace=wrap;fillColor=#FDEBD0;strokeColor=#E8C48A;fontSize=12;fontStyle=1;align=left;spacingLeft=10;fontColor=#5A3E00;" value="url_id  (PK)" vertex="1">
+          <mxGeometry height="30" width="260" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="urlRow2" parent="urlTbl" style="rectangle;html=1;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=#E2E8F0;fontSize=12;align=left;spacingLeft=10;fontColor=#2D3748;" value="short_code" vertex="1">
+          <mxGeometry height="30" width="260" y="60" as="geometry" />
+        </mxCell>
+        <mxCell id="urlRow3" parent="urlTbl" style="rectangle;html=1;whiteSpace=wrap;fillColor=#F7FAFC;strokeColor=#E2E8F0;fontSize=12;align=left;spacingLeft=10;fontColor=#2D3748;" value="click_cnt" vertex="1">
+          <mxGeometry height="30" width="260" y="90" as="geometry" />
+        </mxCell>
+        <mxCell id="anaTbl" parent="1" style="swimlane;rounded=0;whiteSpace=wrap;html=1;startSize=30;fillColor=#16324F;fontColor=#FFFFFF;fontStyle=1;fontSize=13;strokeColor=#0F2033;swimlaneFillColor=#FFFFFF;" value="ANALYTICS" vertex="1">
+          <mxGeometry height="120" width="260" x="600" y="870" as="geometry" />
+        </mxCell>
+        <mxCell id="anaRow1" parent="anaTbl" style="rectangle;html=1;whiteSpace=wrap;fillColor=#FDEBD0;strokeColor=#E8C48A;fontSize=12;fontStyle=1;align=left;spacingLeft=10;fontColor=#5A3E00;" value="analytics_id  (PK)" vertex="1">
+          <mxGeometry height="30" width="260" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="anaRow2" parent="anaTbl" style="rectangle;html=1;whiteSpace=wrap;fillColor=#E8DFF5;strokeColor=#C9B8E8;fontSize=12;fontStyle=1;align=left;spacingLeft=10;fontColor=#4C2E8F;" value="url_id  (FK)" vertex="1">
+          <mxGeometry height="30" width="260" y="60" as="geometry" />
+        </mxCell>
+        <mxCell id="anaRow3" parent="anaTbl" style="rectangle;html=1;whiteSpace=wrap;fillColor=#F7FAFC;strokeColor=#E2E8F0;fontSize=12;align=left;spacingLeft=10;fontColor=#2D3748;" value="device" vertex="1">
+          <mxGeometry height="30" width="260" y="90" as="geometry" />
+        </mxCell>
+        <mxCell id="dbEdge1" edge="1" parent="1" source="userTbl" style="edgeStyle=none;html=1;endArrow=none;startArrow=none;strokeColor=#16324F;strokeWidth=2;" target="urlTbl">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="dbEdge2" edge="1" parent="1" source="urlTbl" style="edgeStyle=none;html=1;endArrow=none;startArrow=none;strokeColor=#16324F;strokeWidth=2;" target="anaTbl">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="dbLbl1" parent="1" style="text;html=1;fontSize=14;fontStyle=1;fontColor=#16324F;align=center;" value="1" vertex="1">
+          <mxGeometry height="20" width="20" x="282" y="908" as="geometry" />
+        </mxCell>
+        <mxCell id="dbLbl2" parent="1" style="text;html=1;fontSize=14;fontStyle=1;fontColor=#16324F;align=center;" value="N" vertex="1">
+          <mxGeometry height="20" width="20" x="300" y="908" as="geometry" />
+        </mxCell>
+        <mxCell id="dbLbl3" parent="1" style="text;html=1;fontSize=14;fontStyle=1;fontColor=#16324F;align=center;" value="1" vertex="1">
+          <mxGeometry height="20" width="20" x="572" y="908" as="geometry" />
+        </mxCell>
+        <mxCell id="dbLbl4" parent="1" style="text;html=1;fontSize=14;fontStyle=1;fontColor=#16324F;align=center;" value="N" vertex="1">
+          <mxGeometry height="20" width="20" x="588" y="908" as="geometry" />
+        </mxCell>
+        <mxCell id="apiHdrM" parent="1" style="rectangle;html=1;whiteSpace=wrap;fillColor=#16324F;strokeColor=#0F2033;fontColor=#FFFFFF;fontStyle=1;fontSize=13;align=center;verticalAlign=middle;" value="Method" vertex="1">
+          <mxGeometry height="40" width="130" x="910" y="870" as="geometry" />
+        </mxCell>
+        <mxCell id="apiHdrE" parent="1" style="rectangle;html=1;whiteSpace=wrap;fillColor=#16324F;strokeColor=#0F2033;fontColor=#FFFFFF;fontStyle=1;fontSize=13;align=center;verticalAlign=middle;" value="API Endpoint" vertex="1">
+          <mxGeometry height="40" width="380" x="1040" y="870" as="geometry" />
+        </mxCell>
+        <mxCell id="apiHdrP" parent="1" style="rectangle;html=1;whiteSpace=wrap;fillColor=#16324F;strokeColor=#0F2033;fontColor=#FFFFFF;fontStyle=1;fontSize=13;align=center;verticalAlign=middle;" value="Purpose" vertex="1">
+          <mxGeometry height="40" width="360" x="1420" y="870" as="geometry" />
+        </mxCell>
+        <mxCell id="apiR1M" parent="1" style="rectangle;html=1;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=#E2E8F0;fontColor=#2C7A7B;fontStyle=1;fontSize=12;align=center;verticalAlign=middle;" value="POST" vertex="1">
+          <mxGeometry height="36" width="130" x="910" y="910" as="geometry" />
+        </mxCell>
+        <mxCell id="apiR1E" parent="1" style="rectangle;html=1;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=#E2E8F0;fontSize=12;fontFamily=Courier New;align=center;verticalAlign=middle;fontColor=#2D3748;" value="/api/v1/shorten" vertex="1">
+          <mxGeometry height="36" width="380" x="1040" y="910" as="geometry" />
+        </mxCell>
+        <mxCell id="apiR1P" parent="1" style="rectangle;html=1;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=#E2E8F0;fontSize=12;align=center;verticalAlign=middle;fontColor=#2D3748;" value="Create a short URL" vertex="1">
+          <mxGeometry height="36" width="360" x="1420" y="910" as="geometry" />
+        </mxCell>
+        <mxCell id="apiR2M" parent="1" style="rectangle;html=1;whiteSpace=wrap;fillColor=#F0F4F8;strokeColor=#E2E8F0;fontColor=#1F6FB2;fontStyle=1;fontSize=12;align=center;verticalAlign=middle;" value="GET" vertex="1">
+          <mxGeometry height="36" width="130" x="910" y="946" as="geometry" />
+        </mxCell>
+        <mxCell id="apiR2E" parent="1" style="rectangle;html=1;whiteSpace=wrap;fillColor=#F0F4F8;strokeColor=#E2E8F0;fontSize=12;fontFamily=Courier New;align=center;verticalAlign=middle;fontColor=#2D3748;" value="/{shortCode}" vertex="1">
+          <mxGeometry height="36" width="380" x="1040" y="946" as="geometry" />
+        </mxCell>
+        <mxCell id="apiR2P" parent="1" style="rectangle;html=1;whiteSpace=wrap;fillColor=#F0F4F8;strokeColor=#E2E8F0;fontSize=12;align=center;verticalAlign=middle;fontColor=#2D3748;" value="Redirect to the original URL" vertex="1">
+          <mxGeometry height="36" width="360" x="1420" y="946" as="geometry" />
+        </mxCell>
+        <mxCell id="apiR3M" parent="1" style="rectangle;html=1;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=#E2E8F0;fontColor=#1F6FB2;fontStyle=1;fontSize=12;align=center;verticalAlign=middle;" value="GET" vertex="1">
+          <mxGeometry height="36" width="130" x="910" y="982" as="geometry" />
+        </mxCell>
+        <mxCell id="apiR3E" parent="1" style="rectangle;html=1;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=#E2E8F0;fontSize=12;fontFamily=Courier New;align=center;verticalAlign=middle;fontColor=#2D3748;" value="/api/v1/urls/{shortCode}" vertex="1">
+          <mxGeometry height="36" width="380" x="1040" y="982" as="geometry" />
+        </mxCell>
+        <mxCell id="apiR3P" parent="1" style="rectangle;html=1;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=#E2E8F0;fontSize=12;align=center;verticalAlign=middle;fontColor=#2D3748;" value="Get URL details" vertex="1">
+          <mxGeometry height="36" width="360" x="1420" y="982" as="geometry" />
+        </mxCell>
+        <mxCell id="apiR4M" parent="1" style="rectangle;html=1;whiteSpace=wrap;fillColor=#F0F4F8;strokeColor=#E2E8F0;fontColor=#B7791F;fontStyle=1;fontSize=12;align=center;verticalAlign=middle;" value="PUT" vertex="1">
+          <mxGeometry height="36" width="130" x="910" y="1018" as="geometry" />
+        </mxCell>
+        <mxCell id="apiR4E" parent="1" style="rectangle;html=1;whiteSpace=wrap;fillColor=#F0F4F8;strokeColor=#E2E8F0;fontSize=12;fontFamily=Courier New;align=center;verticalAlign=middle;fontColor=#2D3748;" value="/api/v1/urls/{shortCode}" vertex="1">
+          <mxGeometry height="36" width="380" x="1040" y="1018" as="geometry" />
+        </mxCell>
+        <mxCell id="apiR4P" parent="1" style="rectangle;html=1;whiteSpace=wrap;fillColor=#F0F4F8;strokeColor=#E2E8F0;fontSize=12;align=center;verticalAlign=middle;fontColor=#2D3748;" value="Update URL (expiry/custom alias)" vertex="1">
+          <mxGeometry height="36" width="360" x="1420" y="1018" as="geometry" />
+        </mxCell>
+        <mxCell id="apiR5M" parent="1" style="rectangle;html=1;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=#E2E8F0;fontColor=#B7472A;fontStyle=1;fontSize=12;align=center;verticalAlign=middle;" value="DELETE" vertex="1">
+          <mxGeometry height="36" width="130" x="910" y="1054" as="geometry" />
+        </mxCell>
+        <mxCell id="apiR5E" parent="1" style="rectangle;html=1;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=#E2E8F0;fontSize=12;fontFamily=Courier New;align=center;verticalAlign=middle;fontColor=#2D3748;" value="/api/v1/urls/{shortCode}" vertex="1">
+          <mxGeometry height="36" width="380" x="1040" y="1054" as="geometry" />
+        </mxCell>
+        <mxCell id="apiR5P" parent="1" style="rectangle;html=1;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=#E2E8F0;fontSize=12;align=center;verticalAlign=middle;fontColor=#2D3748;" value="Delete a short URL" vertex="1">
+          <mxGeometry height="36" width="360" x="1420" y="1054" as="geometry" />
+        </mxCell>
+        <mxCell id="apiR6M" parent="1" style="rectangle;html=1;whiteSpace=wrap;fillColor=#F0F4F8;strokeColor=#E2E8F0;fontColor=#1F6FB2;fontStyle=1;fontSize=12;align=center;verticalAlign=middle;" value="GET" vertex="1">
+          <mxGeometry height="36" width="130" x="910" y="1090" as="geometry" />
+        </mxCell>
+        <mxCell id="apiR6E" parent="1" style="rectangle;html=1;whiteSpace=wrap;fillColor=#F0F4F8;strokeColor=#E2E8F0;fontSize=12;fontFamily=Courier New;align=center;verticalAlign=middle;fontColor=#2D3748;" value="/api/v1/analytics/{shortCode}" vertex="1">
+          <mxGeometry height="36" width="380" x="1040" y="1090" as="geometry" />
+        </mxCell>
+        <mxCell id="apiR6P" parent="1" style="rectangle;html=1;whiteSpace=wrap;fillColor=#F0F4F8;strokeColor=#E2E8F0;fontSize=12;align=center;verticalAlign=middle;fontColor=#2D3748;" value="Get URL analytics (clicks, visits)" vertex="1">
+          <mxGeometry height="36" width="360" x="1420" y="1090" as="geometry" />
+        </mxCell>
+        <mxCell id="archTitle" parent="1" style="text;html=1;fontSize=20;fontStyle=1;fontColor=#16324F;align=left;verticalAlign=middle;" value="TinyURL — System Architecture" vertex="1">
+          <mxGeometry height="30" width="600" x="20" y="1170" as="geometry" />
+        </mxCell>
+        <mxCell id="tierClient" parent="1" style="swimlane;rounded=1;arcSize=4;whiteSpace=wrap;html=1;startSize=30;fillColor=#EAF6F6;fontColor=#1F5B5B;fontStyle=1;fontSize=13;strokeColor=#2C7A7B;strokeWidth=2;swimlaneFillColor=none;verticalAlign=middle;align=center;" value="Client Tier" vertex="1">
+          <mxGeometry height="420" width="260" x="20" y="1220" as="geometry" />
+        </mxCell>
+        <mxCell id="cliClient" parent="tierClient" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#2C7A7B;strokeWidth=2;fontSize=13;fontStyle=1;fontColor=#1F2937;" value="Client" vertex="1">
+          <mxGeometry height="70" width="200" x="30" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="cliLB" parent="tierClient" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#2C7A7B;strokeWidth=2;fontSize=13;fontStyle=1;fontColor=#1F2937;" value="Load Balancer" vertex="1">
+          <mxGeometry height="70" width="200" x="30" y="220" as="geometry" />
+        </mxCell>
+        <mxCell id="cliEdge1" edge="1" parent="1" source="cliClient" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;strokeColor=#34495E;strokeWidth=2;rounded=0;" target="cliLB">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="tierApp" parent="1" style="swimlane;rounded=1;arcSize=4;whiteSpace=wrap;html=1;startSize=30;fillColor=#FFF8EC;fontColor=#8A5D14;fontStyle=1;fontSize=13;strokeColor=#B7791F;strokeWidth=2;swimlaneFillColor=none;verticalAlign=middle;align=center;" value="Application Tier" vertex="1">
+          <mxGeometry height="420" width="620" x="320" y="1220" as="geometry" />
+        </mxCell>
+        <mxCell id="appIdGen" parent="tierApp" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#B7791F;strokeWidth=2;fontSize=13;fontStyle=1;fontColor=#1F2937;" value="ID Generator&lt;br&gt;(Short Code)" vertex="1">
+          <mxGeometry height="70" width="200" x="380" y="70" as="geometry" />
+        </mxCell>
+        <mxCell id="appServer" parent="tierApp" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#B7791F;strokeWidth=2;fontSize=13;fontStyle=1;fontColor=#1F2937;" value="API / App Server&lt;br&gt;(TinyURL Service)" vertex="1">
+          <mxGeometry height="80" width="220" x="20" y="190" as="geometry" />
+        </mxCell>
+        <mxCell id="OrQdmnT_n--6Cck_7jK_-1" edge="1" parent="tierApp" source="appRedis" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" target="appIdGen">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="appRedis" parent="tierApp" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#B7791F;strokeWidth=2;fontSize=13;fontStyle=1;fontColor=#1F2937;" value="Redis Cache" vertex="1">
+          <mxGeometry height="80" width="200" x="380" y="170" as="geometry" />
+        </mxCell>
+        <mxCell id="appAnalytics" parent="tierApp" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#B7791F;strokeWidth=2;fontSize=13;fontStyle=1;fontColor=#1F2937;" value="Analytics Service" vertex="1">
+          <mxGeometry height="80" width="220" x="20" y="300" as="geometry" />
+        </mxCell>
+        <mxCell id="tierData" parent="1" style="swimlane;rounded=1;arcSize=4;whiteSpace=wrap;html=1;startSize=30;fillColor=#F3EEFB;fontColor=#4C2E8F;fontStyle=1;fontSize=13;strokeColor=#6B46C1;strokeWidth=2;swimlaneFillColor=none;verticalAlign=middle;align=center;" value="Data Tier" vertex="1">
+          <mxGeometry height="420" width="650" x="1020" y="1220" as="geometry" />
+        </mxCell>
+        <mxCell id="OrQdmnT_n--6Cck_7jK_-2" parent="tierData" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;strokeWidth=3;strokeColor=#B266FF;fillColor=none;" value="&lt;div&gt;&lt;span style=&quot;color: rgb(31, 41, 55); font-size: 13px; font-weight: 700;&quot;&gt;MySQL / PostgreSQL&lt;br&gt;(URL Database)&lt;/span&gt;&lt;/div&gt;&lt;span style=&quot;color: rgb(31, 41, 55); font-size: 13px; font-weight: 700;&quot;&gt;Backup / Storage&lt;/span&gt;" vertex="1">
+          <mxGeometry height="230" width="180" x="320" y="70" as="geometry" />
+        </mxCell>
+        <mxCell id="OrQdmnT_n--6Cck_7jK_-3" edge="1" parent="tierData" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;innerLoopWaypoints=1;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="490" y="235" as="sourcePoint" />
+            <mxPoint x="490" y="255" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="dataEdge1" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;strokeColor=#34495E;strokeWidth=2;rounded=0;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1335" y="1420" as="sourcePoint" />
+            <mxPoint x="1335" y="1450" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e1" edge="1" parent="1" source="cliLB" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;strokeColor=#34495E;strokeWidth=2;rounded=0;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" target="appServer">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e3" edge="1" parent="1" source="appServer" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;strokeColor=#34495E;strokeWidth=2;rounded=0;" target="appRedis">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e4" edge="1" parent="1" source="appServer" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;strokeColor=#34495E;strokeWidth=2;rounded=0;" target="appAnalytics">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="OrQdmnT_n--6Cck_7jK_-4" edge="1" parent="1" source="appIdGen" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;strokeWidth=2;" target="OrQdmnT_n--6Cck_7jK_-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="OrQdmnT_n--6Cck_7jK_-5" edge="1" parent="1" source="appRedis" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=-0.011;entryY=0.603;entryDx=0;entryDy=0;entryPerimeter=0;strokeWidth=2;" target="OrQdmnT_n--6Cck_7jK_-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="OrQdmnT_n--6Cck_7jK_-7" edge="1" parent="1" source="appAnalytics" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0;entryDx=0;entryDy=165;entryPerimeter=0;strokeWidth=2;" target="OrQdmnT_n--6Cck_7jK_-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
